@@ -10,10 +10,16 @@ body {
 
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 15px;
+
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
 }
 
 textarea, input, button {
     font-size: 15px;
+}
+a {
+    -webkit-app-region: no-drag;
 }
 .hidden {
     display: none !important;
@@ -21,29 +27,28 @@ textarea, input, button {
 
 
 
-.main-content {
-    display: flex;
-    flex-direction: column;
-}
 
 .app-play {
     display: flex;
     position: fixed;
     width: 100%;
-    top: 0;
-    bottom: 58px;
+    height: 100%;
 }
+
+/******************************
+* APP CONTROLS
+*******************************/
 .app-controls {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0,0,0,0.5);
 }
 .app-controls ul.controls {
     list-style: none;
     display: flex;
     margin: 0;
-    padding: 10px 0;
+    padding: 20px 0 10px 0;
     justify-content: center;
 }
 .app-controls ul.controls > li {
@@ -52,17 +57,19 @@ textarea, input, button {
     justify-content: center;
     display: flex;
     position: relative;
-    margin: 0 3px;
-    border: 1px solid #808080;
+    margin: 0 10px;
+    border: 2px solid #fff;
     transition: all 200ms ease;
 }
 .app-controls ul.controls > li:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-color: #585858;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #378caf;
 }
 .app-controls ul.controls > li:active {
-    background-color: #fff;
-    box-shadow:inset 0 0 10px 0 rgba(0,0,0,0.2);
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow:inset 0 0 10px 0 rgba(0,0,0,0.3);
+    transform: rotateX(20deg);
+    transition: all 50ms ease;
 }
 .app-controls ul.controls > li > .btn-control {
     display: inline-flex;
@@ -88,7 +95,7 @@ textarea, input, button {
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-right: 15px solid #808080;
+    border-right: 15px solid #fff;
     left: 10px;
 }
 .app-controls ul.controls > li > .btn-back::after {
@@ -101,7 +108,7 @@ textarea, input, button {
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-left: 15px solid #808080;
+    border-left: 15px solid #fff;
     left: -10px;
 }
 .app-controls ul.controls > li > .btn-next::after {
@@ -113,13 +120,13 @@ textarea, input, button {
     height: 0; 
     border-top: 12px solid transparent;
     border-bottom: 12px solid transparent;
-    border-left: 20px solid #808080;
+    border-left: 20px solid #fff;
     left: 5px;
 }
 /* Pause button */
 .app-controls ul.controls > li > .btn-pause::before {
-    border-left: 7px solid #808080;
-    border-right: 7px solid #808080;
+    border-left: 7px solid #fff;
+    border-right: 7px solid #fff;
     width: 8px;
     height: 25px;
 }
@@ -127,18 +134,27 @@ textarea, input, button {
 .app-controls ul.controls > li:hover > .btn-control {
     cursor: default;
 }
+.app-controls ul.controls > li:hover > .btn-control:focus {
+    box-shadow: none;
+}
 .app-controls ul.controls > li:hover > .btn-back::before,
 .app-controls ul.controls > li:hover > .btn-back::after {
-    border-right-color: #585858;
+    border-right-color: #fff;
 }
 .app-controls ul.controls > li:hover > .btn-next::before,
 .app-controls ul.controls > li:hover > .btn-next::after,
 .app-controls ul.controls > li:hover > .btn-play::before {
-    border-left-color: #585858;
+    border-left-color: #fff;
 }
 .app-controls ul.controls > li:hover > .btn-pause::before {
-    border-color: #585858;
+    border-color: #fff;
 }
+
+
+
+
+
+
 
 
 
