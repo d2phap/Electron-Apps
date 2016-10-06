@@ -1,3 +1,7 @@
+:focus {
+    box-shadow: 0 0 1px 2px rgba(220, 80, 0, 0.6);
+    outline: none;
+}
 body {
     margin: 0 auto;
     -webkit-user-select: none;
@@ -11,7 +15,9 @@ body {
 textarea, input, button {
     font-size: 15px;
 }
-
+.hidden {
+    display: none !important;
+}
 
 
 
@@ -22,24 +28,120 @@ textarea, input, button {
 
 .app-play {
     display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    bottom: 58px;
 }
-ul.app-controls {
+.app-controls {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.1);
+}
+.app-controls ul.controls {
     list-style: none;
     display: flex;
     margin: 0;
-    padding-left: 0;
+    padding: 10px 0;
     justify-content: center;
-    background-color: #ccc;
 }
-ul.app-controls > li {
-    padding: 20px;
+.app-controls ul.controls > li {
+    text-align: center;
+    border-radius: 100%;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    margin: 0 3px;
+    border: 1px solid #808080;
+    transition: all 200ms ease;
 }
-ul.app-controls > li:hover {
-    background-color: rgba(255, 255, 255, 0.4);
+.app-controls ul.controls > li:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: #585858;
 }
-ul.app-controls > li:active {
+.app-controls ul.controls > li:active {
+    background-color: #fff;
+    box-shadow:inset 0 0 10px 0 rgba(0,0,0,0.2);
+}
+.app-controls ul.controls > li > .btn-control {
+    display: inline-flex;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
+.app-controls ul.controls > li > .btn-control::before,
+.app-controls ul.controls > li > .btn-control::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+/* Back button */
+.app-controls ul.controls > li > .btn-back::before,
+.app-controls ul.controls > li > .btn-back::after {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 15px solid #808080;
+    left: 10px;
+}
+.app-controls ul.controls > li > .btn-back::after {
+    left: -15px;
+}
+/* Next button */
+.app-controls ul.controls > li > .btn-next::before,
+.app-controls ul.controls > li > .btn-next::after {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 15px solid #808080;
+    left: -10px;
+}
+.app-controls ul.controls > li > .btn-next::after {
+    left: 15px;
+}
+/* Play button */
+.app-controls ul.controls > li > .btn-play::before {
+    width: 0; 
+    height: 0; 
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 20px solid #808080;
+    left: 5px;
+}
+/* Pause button */
+.app-controls ul.controls > li > .btn-pause::before {
+    border-left: 7px solid #808080;
+    border-right: 7px solid #808080;
+    width: 8px;
+    height: 25px;
+}
+/* Hover state */
+.app-controls ul.controls > li:hover > .btn-control {
+    cursor: default;
+}
+.app-controls ul.controls > li:hover > .btn-back::before,
+.app-controls ul.controls > li:hover > .btn-back::after {
+    border-right-color: #585858;
+}
+.app-controls ul.controls > li:hover > .btn-next::before,
+.app-controls ul.controls > li:hover > .btn-next::after,
+.app-controls ul.controls > li:hover > .btn-play::before {
+    border-left-color: #585858;
+}
+.app-controls ul.controls > li:hover > .btn-pause::before {
+    border-color: #585858;
+}
 
-}
+
+
 
 
 
